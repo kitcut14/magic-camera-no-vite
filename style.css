@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+  background: #f0f0f0;
+}
+.container {
+  padding: 1rem;
+}
+video, img {
+  max-width: 90%;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}

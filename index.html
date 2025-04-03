@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Camera</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <video id="camera" autoplay playsinline></video>
+    <button id="shoot">📸 撮影</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <img id="preview" />
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
