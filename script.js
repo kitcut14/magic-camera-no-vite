@@ -16,14 +16,20 @@ button.addEventListener('click', () => {
   canvas.height = video.videoHeight
   ctx.drawImage(video, 0, 0)
 
+  // 即時プレビュー表示
+  const previewUrl = canvas.toDataURL('image/png')
+  preview.src = previewUrl
+  preview.style.display = 'block'
+  preview.requestFullscreen?.()
+
   setTimeout(() => {
     const heart = new Image()
     heart.src = 'heart3.png'
     heart.onload = () => {
       ctx.drawImage(heart, canvas.width - 100, canvas.height - 150, 80, 120)
-      const url = canvas.toDataURL('image/png')
-      preview.src = url
-      download(url)
+      const finalUrl = canvas.toDataURL('image/png')
+      preview.src = finalUrl
+      download(finalUrl)
     }
   }, 30000)
 })

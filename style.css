@@ -17,3 +17,11 @@ button {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
 }
+img#preview {
+  display: none;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
