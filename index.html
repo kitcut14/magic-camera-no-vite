@@ -67,7 +67,12 @@
 
   <div id="imageView">
     <img id="baseImage">
-    <img id="overlayImage" style="display: none;">
+    <img id="overlayImage" style="display: none;      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;">
   </div>
 
   <script>
@@ -138,7 +143,7 @@
 
       const ctx = canvas.getContext('2d');
       ctx.drawImage(baseImageElem, 0, 0, canvas.width, canvas.height);
-      ctx.drawImage(overlayImageElem, (canvas.width - 100) / 2, (canvas.height - 150) / 2, 100, 150);
+      ctx.drawImage(overlayImageElem, (canvas.width - 130) / 2, (canvas.height - 130) / 2, 130, 130);
 
 
       const dataURL = canvas.toDataURL('image/png');
