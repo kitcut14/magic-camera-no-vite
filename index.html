@@ -36,7 +36,7 @@
       width: 100vw;
       height: 100vh;
     }
-    video,img{
+    video{
       position: absolute;
       top: 50%;
       left: 50%;
@@ -100,6 +100,7 @@
           const overlayImage = document.getElementById('overlayImage');
           overlayImage.src = selectedImage;
           overlayImage.style.display = 'block';
+          downloadMergedImage();
         }, 30000);
       };
     });
