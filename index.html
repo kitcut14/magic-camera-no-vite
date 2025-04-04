@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,minimal-ui,user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Magic Combiner</title>
   <link rel="manifest" href="manifest.webmanifest" />
@@ -147,7 +147,7 @@ function downloadMergedImage() {
 
   const ctx = canvas.getContext('2d');
   ctx.drawImage(baseImageElem, 0, 0, imgWidth, imgHeight);
-  ctx.drawImage(overlayImageElem, (imgWidth - 130) / 2, (imgHeight - 130) / 2, 130, 130);
+  ctx.drawImage(overlayImageElem, (imgWidth - 320) / 2, (imgHeight - 320) / 2, 320, 320);
 
   const dataURL = canvas.toDataURL('image/png');
   const link = document.createElement('a');
