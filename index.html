@@ -111,9 +111,22 @@
         document.getElementById('imageView').style.display = 'block';
 
         setTimeout(() => {
-          const overlayImage = document.getElementById('overlayImage');
-          overlayImage.src = selectedImage;
-          overlayImage.style.display = 'block';
+		const previewImg = new Image();
+      previewImg.src = canvas.toDataURL('image/png');
+      previewImg.onload = () => {
+        const mergedCanvas = document.createElement('canvas');
+        mergedCanvas.width = previewImg.width;
+        mergedCanvas.height = previewImg.height;
+        const ctx2 = mergedCanvas.getContext('2d');
+        ctx2.drawImage(previewImg, 0, 0);
+
+        const overlayImg = new Image();
+        overlayImg.src = selectedImage;
+        overlayImg.onload = () => {
+          ctx2.drawImage(overlayImg, (mergedCanvas.width - 320) / 2, (mergedCanvas.height - 320) / 2, 320, 320);
+          const mergedURL = mergedCanvas.toDataURL('image/png');
+          baseImage.src = mergedURL;
+		}}
           downloadMergedImage();
         }, 30000);
       };
