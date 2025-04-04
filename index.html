@@ -131,30 +131,33 @@
       }
     });
 
-    function downloadMergedImage() {
-      const baseImageElem = document.getElementById('baseImage');
-      const overlayImageElem = document.getElementById('overlayImage');
+function downloadMergedImage() {
+  const baseImageElem = document.getElementById('baseImage');
+  const overlayImageElem = document.getElementById('overlayImage');
 
-      if (!baseImageElem.complete || !overlayImageElem.complete) {
-        console.error("One or both images are not loaded yet.");
-        return;
-      }
+  if (!baseImageElem.complete || !overlayImageElem.complete) {
+    console.error("One or both images are not loaded yet.");
+    return;
+  }
 
-      const canvas = document.createElement('canvas');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  const imgWidth = baseImageElem.naturalWidth;
+  const imgHeight = baseImageElem.naturalHeight;
 
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(baseImageElem, 0, 0, canvas.width, canvas.height);
-      ctx.drawImage(overlayImageElem, (canvas.width - 130) / 2, (canvas.height - 130) / 2, 130, 130);
+  const canvas = document.createElement('canvas');
+  canvas.width = imgWidth;
+  canvas.height = imgHeight;
 
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(baseImageElem, 0, 0, imgWidth, imgHeight);
+  ctx.drawImage(overlayImageElem, (imgWidth - 130) / 2, (imgHeight - 130) / 2, 130, 130);
 
-      const dataURL = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataURL;
-      link.download = 'combined-image.png';
-      link.click();
-    }
+  const dataURL = canvas.toDataURL('image/png');
+  const link = document.createElement('a');
+  link.href = dataURL;
+  link.download = 'combined-image.png';
+  link.click();
+}
+
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js');
