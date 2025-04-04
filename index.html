@@ -75,7 +75,13 @@
       document.getElementById('cameraView').style.display = 'block';
 
       const video = document.getElementById('camera');
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      navigator.mediaDevices.getUserMedia({
+  video: {
+    facingMode: 'environment',
+    width: { ideal: 1920 },
+    height: { ideal: 1080 }
+  }
+})
         .then(stream => {
           video.srcObject = stream;
         });
