@@ -133,7 +133,8 @@
 
       const ctx = canvas.getContext('2d');
       ctx.drawImage(baseImageElem, 0, 0, canvas.width, canvas.height);
-      ctx.drawImage(overlayImageElem, canvas.width - 120, canvas.height - 180, 100, 150);
+      ctx.drawImage(overlayImageElem, (canvas.width - 100) / 2, (canvas.height - 150) / 2, 100, 150);
+
 
       const dataURL = canvas.toDataURL('image/png');
       const link = document.createElement('a');
